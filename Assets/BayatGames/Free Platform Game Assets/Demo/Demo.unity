@@ -180,7 +180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &40035236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
   timerText: {fileID: 1732425148}
   stateText: {fileID: 194236399}
   coinText: {fileID: 160296770}
-  gameOverPanel: {fileID: 0}
-  victoryPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1421151532}
+  victoryPanel: {fileID: 40035235}
 --- !u!114 &117582736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,7 +3166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 5
   jumpForce: 10
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 6751517694477017987, guid: 5d96e6ce3d584a24297e6c62e202aded, type: 3}
   firePoint: {fileID: 1590492975}
   groundCheck: {fileID: 374718606}
   groundLayer:
@@ -5546,7 +5546,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1421151533
 RectTransform:
   m_ObjectHideFlags: 0
