@@ -4,7 +4,7 @@ public class MovingState : PlayerState
 {
     public override void EnterState(PlayerController player)
     {
-        TryPlayAnimation(player, "Run");
+        TryPlayAnimation(player, "Walk");
     }
 
     public override void UpdateState(PlayerController player)
