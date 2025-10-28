@@ -32,28 +32,18 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // NEW: Only update if game is not paused
+        // Skip input when paused
         if (GameManager.Instance != null && GameManager.Instance.IsPaused())
-        {
-            return; // Skip all input when paused
-        }
+            return;
 
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
+        currentState?.UpdateState(this);
     }
 
     public void ChangeState(PlayerState newState)
     {
-        if (currentState != null)
-        {
-            currentState.ExitState(this);
-        }
-
+        currentState?.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
-
         EventManager.TriggerEvent("OnPlayerStateChanged", currentState.GetStateName());
     }
 
@@ -66,8 +56,19 @@ public class PlayerController : MonoBehaviour
     {
         if (bulletPrefab != null && firePoint != null)
         {
-            Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
+
+            // Determine direction based on sprite flip
+            int direction = spriteRenderer.flipX ? -1 : 1;
+
+            // Tell the bullet which direction to move
+            animator.Play("Attack");
+            Bullet bulletScript = bullet.GetComponent<Bullet>();
+            if (bulletScript != null)
+                bulletScript.SetDirection(direction);
+
             AudioManager.Instance.PlayShootSound();
+            animator.Play("Idle");
         }
     }
 

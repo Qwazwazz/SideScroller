@@ -6,10 +6,17 @@ public class Enemy : MonoBehaviour
     public float moveSpeed = 2f;
     private Vector3 startPos;
     private int direction = -1;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     void Start()
     {
         startPos = transform.position;
+    if (spriteRenderer == null)
+    spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.flipX = (direction < 0);
+
     }
 
     void Update()
@@ -26,13 +33,16 @@ public class Enemy : MonoBehaviour
         if (Mathf.Abs(transform.position.x - startPos.x) > 3f)
         {
             direction *= -1;
+            spriteRenderer.flipX = (direction < 0);
         }
     }
 
     public void TakeDamage()
     {
         GameManager.Instance.AddScore(scoreValue);
+        Debug.Log("Orc Died");
         EventManager.TriggerEvent("OnEnemyDefeated");
+        animator.Play("OrcDeath");
         Destroy(gameObject);
     }
 

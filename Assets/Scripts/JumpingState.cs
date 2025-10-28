@@ -4,7 +4,7 @@ public class JumpingState : PlayerState
 {
     public override void EnterState(PlayerController player)
     {
-        TryPlayAnimation(player, "Attack02");
+        TryPlayAnimation(player, "Jump");
 
         Vector2 velocity = player.rb.linearVelocity;
         velocity.y = player.jumpForce;
