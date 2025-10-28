@@ -10,13 +10,13 @@
 ## Task 3 Additions
 ## Observer Pattern
 - EventManager for decoupled communication
-- Events implemented: [List all events]
+- Events implemented: OnEnemyDefeated, OnPlayerStateChanged, OnCoinCollected, OnLevelComplete
 - Observers: UIManager, Achievements
 
 ## State Machine Pattern
-- Player States: [List states]
+- Player States: Idle, Jumping, Moving
 - Game States: Enhanced from Task 2
-- State transitions: [Describe key transitions]
+- State transitions: When moving in any direction, shooting, 
 
 ### Key Integration Points
 1. Score System: Singleton → Observer → UI
@@ -24,14 +24,13 @@
 3. Game Flow: GameState → Events → Scene Changes
 
 ## Repository Statistics
-- Total Commits: [Number]
-- Task 3 Commits: [Number]
-- Lines of Code: ~[Number]
-- Development Time: [Hours]
+- Total Commits: 11
+- Task 3 Commits: 11
+- Development Time: 25
 
 ## How to Play
-- Controls: [Updated controls]
-- Objective: [Game goal]
-- New Features: [List new mechanics]
+- Controls: WASD/Arrow Keys to move, F to fire projectile
+- Objective: Kill all the enemies and find the goal!
+- New Features: New animations and state handler. 
 
 -----------------------------------------------------------------
