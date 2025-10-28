@@ -42,7 +42,6 @@ public class Enemy : MonoBehaviour
         GameManager.Instance.AddScore(scoreValue);
         Debug.Log("Orc Died");
         EventManager.TriggerEvent("OnEnemyDefeated");
-        animator.Play("OrcDeath");
         Destroy(gameObject);
     }
 
